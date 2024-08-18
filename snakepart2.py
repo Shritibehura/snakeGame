@@ -11,7 +11,7 @@ pygame.font.init()
 random.seed()
 
 
-SPEED = 0.40
+SPEED = 0.36
 SNAKE_SIZE = 9
 APPLE_SIZE = SNAKE_SIZE
 SEPARATION = 10
@@ -242,7 +242,7 @@ def drawGameTime (gameTime) :
 def exitScreen ():
     pass
 
-def respwanApples (apples, index, sx, sy):
+def respawnApple (apples, index, sx, sy):
     radius = math.sqrt((SCREEN_WIDTH/2*SCREEN_WIDTH/2 + SCREEN_HEIGHT/2 * SCREEN_HEIGHT/2))/2
     angle = 999
     while (angle > radius):
@@ -303,10 +303,10 @@ def main ():
         for myApple in apples :
             if (myApple.state == 1):
                 if (checkCollision(mySnake.getHead(),SNAKE_SIZE,myApple,APPLE_SIZE) == True):
-                 mySnake.grow()
-                 myApple.state = 0
-                 score += 10
-                 eaten_apple = True        
+                    mySnake.grow()
+                    myApple.state = 0
+                    score += 10
+                    eaten_apple = True        
 
         if (keyPress):
             mySnake.setDirection(keyPress)
